@@ -13,7 +13,7 @@ export const getFruit = (name: string): string | undefined => {
   });
   if (matchingFruit) {
     let result: string = "";
-    result += `Name: ${matchingFruit.name}\nIcon: ${matchingFruit.icon}\nColor: ${matchingFruit.color}\nCategory: ${matchingFruit.category}
+    result += `getFruit:\nName: ${matchingFruit.name}\nIcon: ${matchingFruit.icon}\nColor: ${matchingFruit.color}\nCategory: ${matchingFruit.category}
 	`;
     return result;
   } else return undefined;
@@ -23,12 +23,27 @@ export const getFruits = (name: string): Fruit[] | undefined => {
   return fruits.filter((f) => f.name.includes(name.toLowerCase()));
 };
 
-/* export const getIcon = (name) => {
-  // använd fruits-arrayen och returnera ikonen som matchar frukten name
-  // finns det ingen sådan frukt så returnera undefined
+// använd fruits-arrayen och returnera ikonen som matchar frukten name
+// finns det ingen sådan frukt så returnera undefined
+export const getIcon = (icon: string): string | undefined => {
+  let matchingFruit: Fruit | undefined;
+  fruits.forEach((fruit) => {
+    if (!matchingFruit && fruit.icon === icon) {
+      matchingFruit = fruit;
+    }
+  });
+  if (matchingFruit) {
+    let result: string = "";
+    result += `getIcon:\nIcon: ${matchingFruit.icon}`;
+
+    return result;
+  } else {
+    console.log("didnt work");
+    return undefined;
+  }
 };
 
-export const getColor = (name) => {
+/*export const getColor = (name) => {
   // använd fruits-arrayen och returnera färgen som matchar frukten name
   // finns det ingen sådan frukt så returnera undefined
 };

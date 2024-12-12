@@ -1,5 +1,5 @@
 import { fruits } from "./fruits/fruits";
-import { getFruit } from "./fruits/utils";
+import { getFruit, getIcon } from "./fruits/utils";
 import "./styles.css";
 /* import { Fruit } from "./types/Fruit"; */
 
@@ -10,3 +10,4 @@ console.log("Welcome to fruit-types-quest-II, please fix the code!");
 console.log(getFruit(fruits[0].name));
 console.log(getFruit("melon"));
 console.log(getFruit(fruits[4].name));
+console.log(getIcon(fruits[3].icon));
