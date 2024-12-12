@@ -43,14 +43,25 @@ export const getIcon = (icon: string): string | undefined => {
   }
 };
 
-/*export const getColor = (name) => {
-  // använd fruits-arrayen och returnera färgen som matchar frukten name
-  // finns det ingen sådan frukt så returnera undefined
+// använd fruits-arrayen och returnera färgen som matchar frukten name
+// finns det ingen sådan frukt så returnera undefined
+export const getColor = (name: string): string | undefined => {
+  let matchingfruit: Fruit | undefined;
+  fruits.forEach((fruit) => {
+    if (!matchingfruit && fruit.name === name) {
+      matchingfruit = fruit;
+    }
+  });
+  if (matchingfruit) {
+    let result: string = "";
+    result += `getColor:\n${matchingfruit.color}`;
+    return result;
+  } else return undefined;
 };
 
 // gör en till funktion som man ger ett fruktnamn och som returnerar en frukts kategori
 
-export const numberOfColoredFruits = (color) => {
+/*export const numberOfColoredFruits = (color) => {
   // använd fruits-arrayen och returnera hur många frukter det finns av en given färg color
   // finns det inga frukter av den färgen så svara 0
 };
