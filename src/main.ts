@@ -6,7 +6,7 @@ import {
   getCategory,
   getAllCategories,
   numberOfColoredFruits,
-  numberOfColoredFruits,
+  numberOfFruitsPerCategory as numberOfFruitsPerCategory,
 } from "./fruits/utils";
 import "./styles.css";
 /* import { Fruit } from "./types/Fruit"; */
@@ -24,7 +24,7 @@ if (on) {
 console.log(getFruit(fruits[0].name));
 console.log(getFruit("melon"));
 console.log(getFruit(fruits[4].name));
-console.log(getIcon(fruits[3].icon));
+console.log(getIcon(fruits[3].name));
 console.log(getColor(fruits[9].name));
 
 //skicka in ett namn och få kategori tillbaka
@@ -51,15 +51,17 @@ allFruitCategories.forEach((fruitCategory) => {
 
   fruitDiv.appendChild(fruitP);
 });
-console.log(getCategory("bana"));
+console.log(getCategory("banana"));
 
 console.log(numberOfColoredFruits("brown"));
 
 //rendera numberOfColoredFruits
 
-const conNumberOfColoredFruits = numberOfColoredFruits("yellow");
+const conNumberOfColoredFruits = numberOfColoredFruits("green");
 
 const numP = document.createElement("p") as HTMLElement;
 numP.textContent = "numberOfColoredFruits:\n";
 numP.textContent += conNumberOfColoredFruits.toString();
 fruitDiv.appendChild(numP);
+
+console.log(numberOfFruitsPerCategory("berry"));

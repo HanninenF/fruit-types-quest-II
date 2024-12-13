@@ -1,9 +1,14 @@
-import { AllowedCategories, AllowedColors, Fruit } from "../types/Fruit";
+import {
+  AllowedCategories,
+  AllowedColors,
+  AllowedNames,
+  Fruit,
+} from "../types/fruitType";
 import { fruits } from "./fruits";
 
 // använd fruits-arrayen och returnera det fruit-objekt som matchar name
 // finns det ingen sådan fruit så returnera undefined
-export const getFruit = (name: string): string | undefined => {
+export const getFruit = (name: AllowedNames): string | undefined => {
   let matchingFruit: Fruit | undefined;
 
   fruits.forEach((fruit) => {
@@ -19,16 +24,16 @@ export const getFruit = (name: string): string | undefined => {
   } else return undefined;
 };
 
-export const getFruits = (name: string): Fruit[] | undefined => {
+export const getFruits = (name: AllowedNames): Fruit[] | undefined => {
   return fruits.filter((f) => f.name.includes(name.toLowerCase()));
 };
 
 // använd fruits-arrayen och returnera ikonen som matchar frukten name
 // finns det ingen sådan frukt så returnera undefined
-export const getIcon = (icon: string): string | undefined => {
+export const getIcon = (name: AllowedNames): string | undefined => {
   let matchingFruit: Fruit | undefined;
   fruits.forEach((fruit) => {
-    if (!matchingFruit && fruit.icon === icon) {
+    if (!matchingFruit && fruit.name === name) {
       matchingFruit = fruit;
     }
   });
@@ -44,7 +49,7 @@ export const getIcon = (icon: string): string | undefined => {
 
 // använd fruits-arrayen och returnera färgen som matchar frukten name
 // finns det ingen sådan frukt så returnera undefined
-export const getColor = (name: string): string | undefined => {
+export const getColor = (name: AllowedNames): string | undefined => {
   let matchingFruit: Fruit | undefined;
   fruits.forEach((fruit) => {
     if (!matchingFruit && fruit.name === name) {
@@ -66,7 +71,9 @@ export const getColor = (name: string): string | undefined => {
 };
 
 // gör en till funktion som man ger ett fruktnamn och som returnerar en frukts kategori
-export const getCategory = (name: string): AllowedCategories | undefined => {
+export const getCategory = (
+  name: AllowedNames
+): AllowedCategories | undefined => {
   let matchingFruit: Fruit | undefined;
 
   fruits.forEach((fruit) => {
@@ -79,7 +86,7 @@ export const getCategory = (name: string): AllowedCategories | undefined => {
   }
 };
 
-export const getAllCategories = (fruits: Fruit[]) => {
+export const getAllCategories = (fruits: Fruit[]): Fruit[] => {
   let uniqueFruitCategory: Fruit[] = [];
   let uniqueCategory: string[] = [];
 
@@ -105,10 +112,22 @@ export const numberOfColoredFruits = (color: AllowedColors): number => {
   return uniqueColors.length;
 };
 
-/*// gör en numberOfCategoryFruits här också
+// gör en numberOfCategoryFruits här också
 // använd fruits-arrayen och returnera hur många frukter det finns av en given kategori
+export const numberOfFruitsPerCategory = (
+  category: AllowedCategories
+): number => {
+  let fruitsForCategory: string[] = [];
+  fruits.forEach((fruit) => {
+    if (fruit.category === category) {
+      fruitsForCategory.push(category);
+    }
+  });
 
-export const getFruitsByCategory = (category) => {
+  return fruitsForCategory.length;
+};
+
+/*export const getFruitsByCategory = (category) => {
   // använd fruits-arrayen
   // ta emot en kategori och returnera en array av alla frukter som ingår i den kategorin
 };

@@ -1,4 +1,4 @@
-import { Fruit } from "../types/Fruit";
+import { Fruit } from "../types/fruitType";
 
 export const fruits: Fruit[] = [
   {
@@ -104,7 +104,7 @@ export const fruits: Fruit[] = [
     category: "berry",
   },
   {
-    name: "tomatoe",
+    name: "tomato",
     icon: "🍅",
     color: "red",
     category: "berry",
