@@ -38,7 +38,6 @@ export const getIcon = (icon: string): string | undefined => {
 
     return result;
   } else {
-    console.log("didnt work");
     return undefined;
   }
 };
@@ -46,21 +45,41 @@ export const getIcon = (icon: string): string | undefined => {
 // använd fruits-arrayen och returnera färgen som matchar frukten name
 // finns det ingen sådan frukt så returnera undefined
 export const getColor = (name: string): string | undefined => {
-  let matchingfruit: Fruit | undefined;
+  let matchingFruit: Fruit | undefined;
   fruits.forEach((fruit) => {
-    if (!matchingfruit && fruit.name === name) {
-      matchingfruit = fruit;
+    if (!matchingFruit && fruit.name === name) {
+      matchingFruit = fruit;
     }
   });
-  if (matchingfruit) {
+  if (matchingFruit) {
+    const fruitDiv = document.querySelector("#func") as HTMLElement;
+    const fruitP = document.createElement("p") as HTMLElement;
+
     let result: string = "";
-    result += `getColor:\n${matchingfruit.color}`;
+
+    result += `getColor:\n${matchingFruit.color}`;
+
+    fruitP.textContent = result;
+    fruitDiv.appendChild(fruitP);
     return result;
   } else return undefined;
 };
 
 // gör en till funktion som man ger ett fruktnamn och som returnerar en frukts kategori
+export const getCategory = (name: string): string | undefined => {
+  let matchingFruit: Fruit | undefined;
 
+  fruits.forEach((fruit) => {
+    if (!matchingFruit && fruit.name === name) {
+      matchingFruit = fruit;
+    }
+  });
+  if (matchingFruit) {
+    return matchingFruit.category;
+  }
+};
+
+export const getAllCategories = (fruits: Fruit[]) => {};
 /*export const numberOfColoredFruits = (color) => {
   // använd fruits-arrayen och returnera hur många frukter det finns av en given färg color
   // finns det inga frukter av den färgen så svara 0
