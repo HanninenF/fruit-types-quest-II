@@ -1,7 +1,24 @@
 export type Fruit = {
   name: string;
   icon: string;
-  color: string;
-  category: string;
+  color: AllowedColors;
+  category: AllowedCategories;
 };
-export type fruitsArray = Fruit[];
+
+const allowedColors = [
+  "purple",
+  "green",
+  "red",
+  "orange",
+  "yellow",
+  "limegreen",
+  "blue",
+  "brown",
+] as const;
+
+const allowedCategories = ["berry", "pepo", "citrus", "drupe", "pome"] as const;
+
+const allowedNames = ["grape", "melon"];
+
+export type AllowedColors = (typeof allowedColors)[number];
+export type AllowedCategories = (typeof allowedCategories)[number];

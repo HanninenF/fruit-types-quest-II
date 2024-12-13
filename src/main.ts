@@ -5,6 +5,8 @@ import {
   getColor,
   getCategory,
   getAllCategories,
+  numberOfColoredFruits,
+  numberOfColoredFruits,
 } from "./fruits/utils";
 import "./styles.css";
 /* import { Fruit } from "./types/Fruit"; */
@@ -49,4 +51,15 @@ allFruitCategories.forEach((fruitCategory) => {
 
   fruitDiv.appendChild(fruitP);
 });
-console.log(getCategory("banana"));
+console.log(getCategory("bana"));
+
+console.log(numberOfColoredFruits("brown"));
+
+//rendera numberOfColoredFruits
+
+const conNumberOfColoredFruits = numberOfColoredFruits("yellow");
+
+const numP = document.createElement("p") as HTMLElement;
+numP.textContent = "numberOfColoredFruits:\n";
+numP.textContent += conNumberOfColoredFruits.toString();
+fruitDiv.appendChild(numP);

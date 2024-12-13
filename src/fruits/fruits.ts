@@ -1,6 +1,6 @@
 import { Fruit } from "../types/Fruit";
 
-export const fruits: Fruit = [
+export const fruits: Fruit[] = [
   {
     name: "grape",
     icon: "🍇",
