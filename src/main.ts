@@ -35,5 +35,18 @@ fruitP.textContent = result;
 
 fruitDiv.appendChild(fruitP);
 
-getAllCategories(fruits);
+const allFruitCategories = getAllCategories(fruits);
+console.log(allFruitCategories);
+
+// Rendera namnet på varje kategori
+allFruitCategories.forEach((fruitCategory) => {
+  const fruitDiv = document.querySelector("#func") as HTMLElement;
+  const fruitP = document.createElement("p") as HTMLElement;
+  let result: string = "";
+  const matchingFruit = fruitCategory.name;
+  result += `getCategory:\n ${matchingFruit}`;
+  fruitP.textContent = result;
+
+  fruitDiv.appendChild(fruitP);
+});
 console.log(getCategory("banana"));

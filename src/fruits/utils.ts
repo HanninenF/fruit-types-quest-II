@@ -79,7 +79,18 @@ export const getCategory = (name: string): string | undefined => {
   }
 };
 
-export const getAllCategories = (fruits: Fruit[]) => {};
+export const getAllCategories = (fruits: Fruit[]) => {
+  let uniqueFruitCategory: Fruit[] = [];
+  let uniqueCategory: string[] = [];
+
+  fruits.forEach((fruit) => {
+    if (!uniqueCategory.includes(fruit.category)) {
+      uniqueCategory.push(fruit.category);
+      uniqueFruitCategory.push(fruit);
+    }
+  });
+  return uniqueFruitCategory;
+};
 /*export const numberOfColoredFruits = (color) => {
   // använd fruits-arrayen och returnera hur många frukter det finns av en given färg color
   // finns det inga frukter av den färgen så svara 0
