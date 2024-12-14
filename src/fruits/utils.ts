@@ -139,6 +139,15 @@ export const getFruitsByCategory = (category: AllowedCategories): Fruit[] => {
 };
 
 // gör en getFruitsByColor också
+export const getFruitsByColor = (color: AllowedColors): Fruit[] => {
+  let sortedFruits: Fruit[] = [];
+  fruits.forEach((fruit) => {
+    if (fruit.color === color) {
+      sortedFruits.push(fruit);
+    }
+  });
+  return sortedFruits;
+};
 
 /*export const getIconsByCategory = (category) => {
   // använd fruits-arrayen

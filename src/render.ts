@@ -1,7 +1,11 @@
 /* import { allFruitCategories } from "./main"; */
 import { fruits } from "./fruits/fruits";
-import { getFruitsByCategory } from "./fruits/utils";
-import { AllowedCategories, Fruit } from "./types/fruitType";
+import {
+  getFruit,
+  getFruitsByCategory,
+  getFruitsByColor,
+} from "./fruits/utils";
+import { AllowedCategories, AllowedColors, Fruit } from "./types/fruitType";
 
 // Rendera namnet på varje kategori
 export const renderFunction = (allFruitCategories: Fruit[]): void => {
@@ -30,6 +34,16 @@ export const renderFruitsByCategory = (category: AllowedCategories): void => {
     const divElement = document.querySelector("#func") as HTMLElement;
     const pElement = document.createElement("p") as HTMLElement;
     pElement.textContent = `Name: ${fruit.name}\nIcon: ${fruit.icon}\nColor: ${fruit.color}\nCategory: ${fruit.category}`;
-    divElement.append(pElement);
+    divElement.appendChild(pElement);
+  });
+};
+
+export const renderFruitsByColor = (color: AllowedColors): void => {
+  const renderFruits = getFruitsByColor(color);
+  renderFruits.forEach((fruit) => {
+    const divElement = document.querySelector("#func") as HTMLElement;
+    const pElement = document.createElement("p") as HTMLElement;
+    pElement.textContent = `Name: ${fruit.name}\nIcon: ${fruit.icon}\nColor: ${fruit.color}\nCategory: ${fruit.category}`;
+    divElement.appendChild(pElement);
   });
 };
