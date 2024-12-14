@@ -166,6 +166,15 @@ export const getIconsByCategory = (
 };
 
 // gör en getIconsByColor också
+export const getIconsByColor = (color: AllowedColors): AllowedIcons[] => {
+  let sortedIcons: AllowedIcons[] = [];
+  fruits.forEach((fruit) => {
+    if (fruit.color === color) {
+      sortedIcons.push(fruit.icon);
+    }
+  });
+  return sortedIcons;
+};
 
 // gör en getCategories som returnerar en array av alla kategorier
 // gör en getColors som returnerar en array av alla färger */

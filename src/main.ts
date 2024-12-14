@@ -9,6 +9,7 @@ import {
   numberOfFruitsPerCategory as numberOfFruitsPerCategory,
   getFruitsByCategory,
   getIconsByCategory,
+  getIconsByColor,
 } from "./fruits/utils";
 import "./styles.css";
 import {
@@ -17,6 +18,7 @@ import {
   renderFruitsByCategory,
   renderFruitsByColor,
   renderIconsByCategory,
+  renderIconsByColor,
 } from "./render";
 /* import { Fruit } from "./types/Fruit"; */
 
@@ -62,3 +64,7 @@ renderFruitsByColor("red");
 console.log(getIconsByCategory("drupe"));
 
 renderIconsByCategory("berry");
+
+console.log(getIconsByColor("blue"));
+
+renderIconsByColor("red");

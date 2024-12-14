@@ -5,6 +5,7 @@ import {
   getFruitsByCategory,
   getFruitsByColor,
   getIconsByCategory,
+  getIconsByColor,
 } from "./fruits/utils";
 import { AllowedCategories, AllowedColors, Fruit } from "./types/fruitType";
 
@@ -53,6 +54,16 @@ export const renderIconsByCategory = (category: AllowedCategories): void => {
   const renderIcons = getIconsByCategory(category);
   const divElement = document.querySelector("#func") as HTMLElement;
   const pElement = document.createElement("p");
+  renderIcons.forEach((icon) => {
+    pElement.textContent += `${icon} `;
+    divElement.appendChild(pElement);
+  });
+};
+
+export const renderIconsByColor = (color: AllowedColors): void => {
+  const renderIcons = getIconsByColor(color);
+  const divElement = document.querySelector("#func") as HTMLElement;
+  const pElement = document.createElement("p") as HTMLElement;
   renderIcons.forEach((icon) => {
     pElement.textContent += `${icon} `;
     divElement.appendChild(pElement);
