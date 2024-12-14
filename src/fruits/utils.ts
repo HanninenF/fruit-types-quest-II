@@ -177,4 +177,14 @@ export const getIconsByColor = (color: AllowedColors): AllowedIcons[] => {
 };
 
 // gör en getCategories som returnerar en array av alla kategorier
+
 // gör en getColors som returnerar en array av alla färger */
+export const getAllColors = (): AllowedColors[] => {
+  let allColors: AllowedColors[] = [];
+  fruits.forEach((fruit) => {
+    if (!allColors.includes(fruit.color)) {
+      allColors.push(fruit.color);
+    }
+  });
+  return allColors;
+};

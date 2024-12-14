@@ -1,6 +1,7 @@
 /* import { allFruitCategories } from "./main"; */
 import { fruits } from "./fruits/fruits";
 import {
+  getAllColors,
   getFruit,
   getFruitsByCategory,
   getFruitsByColor,
@@ -66,6 +67,17 @@ export const renderIconsByColor = (color: AllowedColors): void => {
   const pElement = document.createElement("p") as HTMLElement;
   renderIcons.forEach((icon) => {
     pElement.textContent += `${icon} `;
+    divElement.appendChild(pElement);
+  });
+};
+
+export const renderAllColors = (): void => {
+  const renderColors = getAllColors();
+  const divElement = document.querySelector("#func") as HTMLElement;
+  const pElement = document.createElement("p") as HTMLElement;
+  pElement.textContent = "All colors are:\n";
+  renderColors.forEach((color) => {
+    pElement.textContent += ` ${color.charAt(0).toUpperCase() + color.slice(1)}, `;
     divElement.appendChild(pElement);
   });
 };

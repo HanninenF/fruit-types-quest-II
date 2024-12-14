@@ -10,6 +10,7 @@ import {
   getFruitsByCategory,
   getIconsByCategory,
   getIconsByColor,
+  getAllColors,
 } from "./fruits/utils";
 import "./styles.css";
 import {
@@ -19,6 +20,7 @@ import {
   renderFruitsByColor,
   renderIconsByCategory,
   renderIconsByColor,
+  renderAllColors,
 } from "./render";
 /* import { Fruit } from "./types/Fruit"; */
 
@@ -68,3 +70,6 @@ renderIconsByCategory("berry");
 console.log(getIconsByColor("blue"));
 
 renderIconsByColor("red");
+
+console.log(getAllColors());
+renderAllColors();
