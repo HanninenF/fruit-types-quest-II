@@ -4,6 +4,7 @@ import {
   getFruit,
   getFruitsByCategory,
   getFruitsByColor,
+  getIconsByCategory,
 } from "./fruits/utils";
 import { AllowedCategories, AllowedColors, Fruit } from "./types/fruitType";
 
@@ -30,8 +31,8 @@ export const render = (num: number): void => {
 
 export const renderFruitsByCategory = (category: AllowedCategories): void => {
   const renderFruits = getFruitsByCategory(category);
+  const divElement = document.querySelector("#func") as HTMLElement;
   renderFruits.forEach((fruit) => {
-    const divElement = document.querySelector("#func") as HTMLElement;
     const pElement = document.createElement("p") as HTMLElement;
     pElement.textContent = `Name: ${fruit.name}\nIcon: ${fruit.icon}\nColor: ${fruit.color}\nCategory: ${fruit.category}`;
     divElement.appendChild(pElement);
@@ -40,10 +41,20 @@ export const renderFruitsByCategory = (category: AllowedCategories): void => {
 
 export const renderFruitsByColor = (color: AllowedColors): void => {
   const renderFruits = getFruitsByColor(color);
+  const divElement = document.querySelector("#func") as HTMLElement;
   renderFruits.forEach((fruit) => {
-    const divElement = document.querySelector("#func") as HTMLElement;
     const pElement = document.createElement("p") as HTMLElement;
     pElement.textContent = `Name: ${fruit.name}\nIcon: ${fruit.icon}\nColor: ${fruit.color}\nCategory: ${fruit.category}`;
+    divElement.appendChild(pElement);
+  });
+};
+
+export const renderIconsByCategory = (category: AllowedCategories): void => {
+  const renderIcons = getIconsByCategory(category);
+  const divElement = document.querySelector("#func") as HTMLElement;
+  const pElement = document.createElement("p");
+  renderIcons.forEach((icon) => {
+    pElement.textContent += `${icon} `;
     divElement.appendChild(pElement);
   });
 };

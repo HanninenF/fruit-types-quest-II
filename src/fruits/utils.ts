@@ -1,6 +1,7 @@
 import {
   AllowedCategories,
   AllowedColors,
+  AllowedIcons,
   AllowedNames,
   Fruit,
 } from "../types/fruitType";
@@ -149,9 +150,19 @@ export const getFruitsByColor = (color: AllowedColors): Fruit[] => {
   return sortedFruits;
 };
 
-/*export const getIconsByCategory = (category) => {
-  // använd fruits-arrayen
-  // ta emot en kategori och returnera alla ikoner från alla frukter i den kategorin
+// använd fruits-arrayen
+// ta emot en kategori och returnera alla ikoner från alla frukter i den kategorin
+export const getIconsByCategory = (
+  category: AllowedCategories
+): AllowedIcons[] => {
+  let sortedIcons: AllowedIcons[] = [];
+  fruits.forEach((fruit) => {
+    if (fruit.category === category) {
+      sortedIcons.push(fruit.icon);
+    }
+  });
+
+  return sortedIcons;
 };
 
 // gör en getIconsByColor också
