@@ -7,9 +7,10 @@ import {
   getAllCategories,
   numberOfColoredFruits,
   numberOfFruitsPerCategory as numberOfFruitsPerCategory,
+  getFruitsByCategory,
 } from "./fruits/utils";
 import "./styles.css";
-import { renderFunction, render } from "./render";
+import { renderFunction, render, renderFruitsByCategory } from "./render";
 /* import { Fruit } from "./types/Fruit"; */
 
 console.log("Welcome to fruit-types-quest-II, please fix the code!");
@@ -43,3 +44,7 @@ const conNumberOfColoredFruits = numberOfColoredFruits("green");
 render(conNumberOfColoredFruits);
 
 console.log(numberOfFruitsPerCategory("berry"));
+
+console.log(getFruitsByCategory("drupe"));
+
+renderFruitsByCategory("citrus");

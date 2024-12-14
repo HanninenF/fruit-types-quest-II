@@ -126,15 +126,21 @@ export const numberOfFruitsPerCategory = (
 
   return fruitsForCategory.length;
 };
-
-/*export const getFruitsByCategory = (category) => {
-  // använd fruits-arrayen
-  // ta emot en kategori och returnera en array av alla frukter som ingår i den kategorin
+// använd fruits-arrayen
+// ta emot en kategori och returnera en array av alla frukter som ingår i den kategorin
+export const getFruitsByCategory = (category: AllowedCategories): Fruit[] => {
+  let sortedFruits: Fruit[] = [];
+  fruits.forEach((fruit) => {
+    if (fruit.category === category) {
+      sortedFruits.push(fruit);
+    }
+  });
+  return sortedFruits;
 };
 
 // gör en getFruitsByColor också
 
-export const getIconsByCategory = (category) => {
+/*export const getIconsByCategory = (category) => {
   // använd fruits-arrayen
   // ta emot en kategori och returnera alla ikoner från alla frukter i den kategorin
 };
