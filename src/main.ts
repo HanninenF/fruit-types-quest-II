@@ -9,6 +9,7 @@ import {
   numberOfFruitsPerCategory as numberOfFruitsPerCategory,
 } from "./fruits/utils";
 import "./styles.css";
+import { renderFunction, render } from "./render";
 /* import { Fruit } from "./types/Fruit"; */
 
 console.log("Welcome to fruit-types-quest-II, please fix the code!");
@@ -27,41 +28,18 @@ console.log(getFruit(fruits[4].name));
 console.log(getIcon(fruits[3].name));
 console.log(getColor(fruits[9].name));
 
-//skicka in ett namn och få kategori tillbaka
-const fruitDiv = document.querySelector("#func") as HTMLElement;
-const fruitP = document.createElement("p") as HTMLElement;
-let result: string = "";
-const matchingFruit = getCategory("banana");
-result += `getCategory:\n ${matchingFruit}`;
-fruitP.textContent = result;
+export const allFruitCategories = getAllCategories(fruits);
+console.log(`allFruitCategories= `, allFruitCategories);
 
-fruitDiv.appendChild(fruitP);
+renderFunction(allFruitCategories);
 
-const allFruitCategories = getAllCategories(fruits);
-console.log(allFruitCategories);
-
-// Rendera namnet på varje kategori
-allFruitCategories.forEach((fruitCategory) => {
-  const fruitDiv = document.querySelector("#func") as HTMLElement;
-  const fruitP = document.createElement("p") as HTMLElement;
-  let result: string = "";
-  const matchingFruit = fruitCategory.name;
-  result += `getCategory:\n ${matchingFruit}`;
-  fruitP.textContent = result;
-
-  fruitDiv.appendChild(fruitP);
-});
 console.log(getCategory("banana"));
 
 console.log(numberOfColoredFruits("brown"));
 
-//rendera numberOfColoredFruits
-
 const conNumberOfColoredFruits = numberOfColoredFruits("green");
 
-const numP = document.createElement("p") as HTMLElement;
-numP.textContent = "numberOfColoredFruits:\n";
-numP.textContent += conNumberOfColoredFruits.toString();
-fruitDiv.appendChild(numP);
+//rendera numberOfColoredFruits
+render(conNumberOfColoredFruits);
 
 console.log(numberOfFruitsPerCategory("berry"));
