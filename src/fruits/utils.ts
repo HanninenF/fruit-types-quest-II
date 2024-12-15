@@ -176,8 +176,6 @@ export const getIconsByColor = (color: AllowedColors): AllowedIcons[] => {
   return sortedIcons;
 };
 
-// gör en getCategories som returnerar en array av alla kategorier
-
 // gör en getColors som returnerar en array av alla färger */
 export const getAllColors = (): AllowedColors[] => {
   let allColors: AllowedColors[] = [];
@@ -187,4 +185,24 @@ export const getAllColors = (): AllowedColors[] => {
     }
   });
   return allColors;
+};
+
+//gör en funktion som skickar in en icon och får till baka alla frukter med matchande icon
+export const getFruitByIcon = (icon: AllowedIcons): Fruit => {
+  let matchingFruit: Fruit = fruits[0];
+  let matchingIcon: AllowedIcons = "🍅";
+  fruits.forEach((fruit) => {
+    if (fruit.icon === icon && matchingFruit !== null) {
+      matchingFruit = fruit;
+      matchingIcon = fruit.icon;
+    }
+  });
+  return matchingFruit;
+};
+
+export const charAt0toUpperCase = (stringInput: string): string => {
+  let stringWithUpperCase: string = "";
+  stringWithUpperCase =
+    stringInput.charAt(0).toUpperCase() + stringInput.slice(1);
+  return stringWithUpperCase;
 };

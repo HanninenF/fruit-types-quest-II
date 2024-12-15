@@ -19,4 +19,12 @@ body {
     background-color: aliceblue;
     border: solid red;
   }
+
+  #side {
+    white-space: pre-line;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-area: 1/2/1/2;
+    gap: 0.5rem;
+  }
 }

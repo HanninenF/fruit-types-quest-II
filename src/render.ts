@@ -5,10 +5,17 @@ import {
   getFruit,
   getFruitsByCategory,
   getFruitsByColor,
+  getFruitByIcon as getFruitByIcon,
   getIconsByCategory,
   getIconsByColor,
+  charAt0toUpperCase,
 } from "./fruits/utils";
-import { AllowedCategories, AllowedColors, Fruit } from "./types/fruitType";
+import {
+  AllowedCategories,
+  AllowedColors,
+  AllowedIcons,
+  Fruit,
+} from "./types/fruitType";
 
 // Rendera namnet på varje kategori
 export const renderFunction = (allFruitCategories: Fruit[]): void => {
@@ -73,11 +80,25 @@ export const renderIconsByColor = (color: AllowedColors): void => {
 
 export const renderAllColors = (): void => {
   const renderColors = getAllColors();
-  const divElement = document.querySelector("#func") as HTMLElement;
-  const pElement = document.createElement("p") as HTMLElement;
-  pElement.textContent = "All colors are:\n";
+  const divElement = document.querySelector("#side") as HTMLElement;
+  const h2Element = document.createElement("h2") as HTMLElement;
+  h2Element.textContent = "All colors are:\n";
+  divElement.appendChild(h2Element);
   renderColors.forEach((color) => {
-    pElement.textContent += ` ${color.charAt(0).toUpperCase() + color.slice(1)}, `;
+    const pElement = document.createElement("p") as HTMLElement;
+    pElement.textContent += ` ${color.charAt(0).toUpperCase() + color.slice(1)} `;
     divElement.appendChild(pElement);
   });
+};
+
+export const renderFruitByIcon = (icon: AllowedIcons): void => {
+  const renderFruit = getFruitByIcon(icon);
+  const divElement = document.querySelector("#side") as HTMLElement;
+  const h2Element = document.createElement("h2");
+  h2Element.textContent = "Fruit by Icon is:\n";
+  divElement.appendChild(h2Element);
+
+  const pElement = document.createElement("p") as HTMLElement;
+  pElement.textContent = `Name: ${charAt0toUpperCase(renderFruit.name)}\nIcon: ${charAt0toUpperCase(renderFruit.icon)}\nColor: ${charAt0toUpperCase(renderFruit.color)}\nCategory: ${charAt0toUpperCase(renderFruit.category)} `;
+  divElement.appendChild(pElement);
 };
